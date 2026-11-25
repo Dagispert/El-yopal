@@ -9,4 +9,4 @@ Identidad visual de El Yopal (kiosco Urban Express: café, galletas artesanas, s
 - `marca/logo-original/`: el logotipo original (JPG) y su trazado vectorial.
 - `marca/scripts/`: `trace_logo.py` vectoriza el logotipo original; `make_svgs.py` genera los logotipos en cada tinta, el Solete y los iconos.
 
-Tipografías: Fraunces, Barlow Condensed, Figtree y Caveat Brush (todas gratuitas en Google Fonts).
+Tipografías: Sansita, Figtree y Caveat Brush (todas gratuitas en Google Fonts).

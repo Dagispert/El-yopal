@@ -7,7 +7,8 @@ El logotipo de El Yopal es el rotulado a mano original: «El Yopal» en letra de
 - `logotipo-crema.svg` sobre `granate` o fotos oscuras.
 - `logotipo-tinta.svg` (`granate-hondo`) sobre `sol` o `azul`, y para impresión a una tinta.
 - `bloque-*.svg`: el logotipo con el rótulo URBAN EXPRESS · CAFÉ & GALLETAS debajo, para cabeceras, la carta y pies de post.
-- `avatar-perfil.svg`: logotipo `crema` sobre `granate`, para la foto de perfil.
+- `avatar-perfil.svg`: logotipo `crema` sobre `granate`, para la foto de perfil (a partir de unos 100 px).
+- `icono-pequeno.svg`: el Solete sobre un círculo `granate`, para todo lo que mida menos de 48 px (favicon, icono de app, mapas).
 
 ## Reglas
 - Área de respeto: la altura de la «o» alrededor de todo el logotipo, rayos incluidos.

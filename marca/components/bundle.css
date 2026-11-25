@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600..900,0..100&family=Barlow+Condensed:wght@600;700&family=Caveat+Brush&family=Figtree:wght@400;500;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sansita:wght@800;900&family=Figtree:wght@400;500;700;800&family=Caveat+Brush&display=swap");
 
 /* El Yopal — piezas compartidas. Todo color sale de los tokens. */
 .yp { font-family: var(--font-texto); color: var(--tinta); }
@@ -6,7 +6,7 @@
 
 /* Botón: píldora con sombra de pegatina */
 .yp-btn {
-  font-family: var(--font-rotulo); font-weight: 700; font-size: 17px; letter-spacing: .08em; text-transform: uppercase;
+  font-family: var(--font-rotulo); font-weight: 700; font-size: 15px; letter-spacing: .1em; text-transform: uppercase;
   display: inline-flex; align-items: center; gap: var(--esp-2);
   padding: var(--esp-3) var(--esp-6); border-radius: var(--radio-pill); border: 2px solid var(--granate-hondo);
   background: var(--granate); color: var(--sobre-granate); box-shadow: var(--sombra-pegatina);
@@ -47,5 +47,3 @@
 .yp-rotulo { font-family: var(--font-rotulo); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .yp-mano { font-family: var(--font-mano); }
 
-/* Fraunces con las puntas suavizadas en toda la marca (las demás fuentes ignoran este eje) */
-html, body, * { font-variation-settings: "SOFT" 100, "WONK" 0; font-optical-sizing: auto; }

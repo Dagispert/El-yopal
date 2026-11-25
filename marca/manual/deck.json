@@ -52,17 +52,13 @@
     }
   },
   "faces": {
-    "fraunces": {
-      "family": "Fraunces",
-      "href": "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,900,100&display=swap"
+    "sansita": {
+      "family": "Sansita",
+      "href": "https://fonts.googleapis.com/css2?family=Sansita:wght@900&display=swap"
     },
     "figtree": {
       "family": "Figtree",
-      "href": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&display=swap"
-    },
-    "barlow-condensed": {
-      "family": "Barlow Condensed",
-      "href": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap"
+      "href": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700;800&display=swap"
     },
     "caveat-brush": {
       "family": "Caveat Brush",
@@ -74,8 +70,8 @@
       "title": "El Yopal",
       "namespace": "elyopal",
       "artifact": "https://claude.ai/artifact/EZdRt8FUCishJC3ozdZ8Ps",
-      "version": "1795589422-8857",
-      "copiedAt": "2026-11-25T08:50:00Z"
+      "version": "1795591848-4e76",
+      "copiedAt": "2026-11-25T10:50:00Z"
     }
   ]
 }

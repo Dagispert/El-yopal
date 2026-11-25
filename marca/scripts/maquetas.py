@@ -4,7 +4,7 @@ S = sys.argv[1]
 A = S + "/ds/project/assets"; I = S + "/ilustra"; O = S + "/maquetas"
 os.makedirs(O, exist_ok=True)
 G, H, C, SOL, ALT, AZUL = "#8C1D2F", "#4A0E18", "#FFF4E2", "#FFC83D", "#FBE6C6", "#6F8FCF"
-FONTS = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,900,100&family=Barlow+Condensed:wght@700&family=Figtree:wght@500&display=swap">'
+FONTS = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sansita:wght@900&family=Figtree:wght@500;700;800&display=swap">'
 
 def f(p): return "file://" + p
 def ilu(n, modo): return f(f"{I}/{n}-{modo}.svg")
@@ -13,8 +13,8 @@ LOGO = {k: f(f"{A}/Logos/logotipo-{k}.svg") for k in ("granate", "crema", "tinta
 def page(name, w, h, bg, body, extra_css=""):
     html = f'''<!doctype html><html><head><meta charset="utf-8">{FONTS}<style>
     *{{box-sizing:border-box}} body{{margin:0}} .c{{position:relative;width:{w}px;height:{h}px;background:{bg};overflow:hidden}}
-    .r{{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.12em;text-transform:uppercase}}
-    .fr{{font-family:Fraunces,serif;font-weight:900;font-variation-settings:"SOFT" 100}}
+    .r{{font-family:Figtree,sans-serif;font-weight:800;letter-spacing:.12em;text-transform:uppercase}}
+    .fr{{font-family:Sansita,sans-serif;font-weight:900}}
     {extra_css}</style></head><body><div class="c">{body}</div></body></html>'''
     open(f"{O}/{name}.html", "w").write(html)
 
@@ -51,7 +51,7 @@ bolsa = f'''<svg style="position:absolute;left:250px;top:220px" width="700" heig
 <rect x="150" y="300" width="400" height="460" rx="30" fill="{C}"/>
 <image href="{LOGO['granate']}" x="190" y="340" width="320" height="163"/>
 <image href="{ilu('kiosco', 'linea')}" x="255" y="520" width="190" height="190"/>
-<text x="350" y="738" text-anchor="middle" font-family="Barlow Condensed" font-weight="700" font-size="26" letter-spacing="3" fill="{G}">CAFÉ · GALLETAS · KIOSCO</text>
+<text x="350" y="738" text-anchor="middle" font-family="Figtree" font-weight="800" font-size="26" letter-spacing="3" fill="{G}">CAFÉ · GALLETAS · KIOSCO</text>
 </g></svg>'''
 page("bolsa", 1200, 1500, ALT, bolsa)
 
@@ -63,11 +63,11 @@ cami = f'''<svg style="position:absolute;left:100px;top:180px" width="1000" heig
 <path d="M330 40 Q500 90 670 40 L960 190 L880 420 L780 380 L790 1140 L210 1140 L220 380 L120 420 L40 190 Z" fill="{G}"/>
 <path d="M330 40 Q500 90 670 40 L960 190 L880 420 L780 380 L790 1140 L210 1140 L220 380 L120 420 L40 190 Z" fill="url(#cg)"/>
 <path d="M330 40 Q500 72 670 40" stroke="{H}" stroke-width="10" fill="none"/>
-<text x="500" y="250" text-anchor="middle" font-family="Barlow Condensed" font-weight="700" font-size="30" letter-spacing="4" fill="{C}">URBAN EXPRESS · DESDE EL KIOSCO</text>
+<text x="500" y="250" text-anchor="middle" font-family="Figtree" font-weight="800" font-size="30" letter-spacing="4" fill="{C}">URBAN EXPRESS · DESDE EL KIOSCO</text>
 <image href="{LOGO['crema']}" x="290" y="280" width="420" height="214"/>
 <image href="{ilu('kiosco', 'linea-crema')}" x="380" y="540" width="240" height="240"/>
-<text x="500" y="850" text-anchor="middle" font-family="Fraunces" font-weight="900" font-size="54" fill="{SOL}">tu parada de cada día</text>
-<text x="500" y="910" text-anchor="middle" font-family="Barlow Condensed" font-weight="700" font-size="26" letter-spacing="4" fill="{C}">CAFÉ · GALLETAS ARTESANAS · REVISTAS</text>
+<text x="500" y="850" text-anchor="middle" font-family="Sansita" font-weight="900" font-size="54" fill="{SOL}">tu parada de cada día</text>
+<text x="500" y="910" text-anchor="middle" font-family="Figtree" font-weight="800" font-size="26" letter-spacing="4" fill="{C}">CAFÉ · GALLETAS ARTESANAS · REVISTAS</text>
 </svg>'''
 page("camiseta", 1200, 1500, AZUL, cami)
 
