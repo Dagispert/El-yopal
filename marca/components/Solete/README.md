@@ -1,17 +1,20 @@
 # Solete
 
-El Solete es la mascota de El Yopal: el sol del logotipo, completo y con cara. Se dibuja igual que el logo: trazo grueso y uniforme con puntas redondas, un círculo abierto como una pincelada y rayos sueltos, separados del círculo.
+El Solete es la mascota de El Yopal: un sol plano y luminoso, macizo y sin contorno, con doce rayos de puntas redondas que alternan largo y corto, y una cara sencilla de trazo en `granate-hondo`.
 
 ## Versiones
 - **Feliz** (`solete-feliz.svg`): la cara por defecto. Saludos, horarios, «ya estamos abiertos».
 - **Guiño** (`solete-guino.svg`): ofertas y combos.
 - **Sorpresa** (`solete-sorpresa.svg`): novedades y sabores nuevos.
-- **Sobre granate** (`solete-crema.svg`): contorno y rayos en `crema` para que se lea sobre `granate`; la cara sigue en `granate-hondo`.
-- **Una tinta** (`solete-linea.svg`): solo trazo `granate`, sin relleno. Para sellos, vasos, bolsas y bordados.
-- **Asomando** (`solete-asomando.svg`): medio sol saliendo, como en el logotipo. Se pega al borde inferior de un post o una historia.
+- **Una tinta** (`solete-tinta.svg`): sol en `granate-hondo` con cara `sol`. Para fondos `sol`, donde el amarillo desaparecería, y para impresión a una tinta (vasos, bolsas, sellos).
+- **Asomando** (`solete-asomando.svg`): medio sol saliendo, para pegar en el borde inferior de un post o una historia.
+
+## Dónde se lee bien
+- Muy bien sobre `granate`, `cielo`, `granate-hondo` y fotos.
+- Sobre `crema` o `superficie` el amarillo tiene poco contraste: ponlo dentro de un bloque de color o usa `solete-tinta`.
+- Sobre `sol`, siempre `solete-tinta`.
 
 ## Reglas
 - Uno por pieza, como mucho.
-- Sobre fondos claros (`crema`, `sol`, `cielo`) usa las versiones con contorno `granate-hondo`. Sobre `granate`, usa `solete-crema`.
-- Se puede girar un poco (entre -12° y 12°). Sin sombra, sin borde de pegatina y sin coloretes: es tan limpio como el logo.
+- Se puede girar un poco (entre -12° y 12°). Sin contorno, sin sombra, sin borde de pegatina y sin cambiarle el color.
 - Tamaño mínimo: 40 px.

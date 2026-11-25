@@ -54,58 +54,45 @@ S = 1080; s = (S * 0.84) / LW
 write("Logos", "avatar-perfil.svg", svg(S, S, f'<rect width="{S}" height="{S}" fill="{C["granate"]}"/>\n  ' +
       logo(C["crema"], (S - LW * s) / 2, (S - LH * s) / 2 + 10, s), "El Yopal · avatar"))
 
-# 4. El Solete
-# Proporciones medidas en el sol del logotipo: trazo ≈ 0,26 del radio del arco,
-# hueco entre arco y rayos ≈ 0,22 del radio, rayos de longitud ligeramente desigual.
-R, T = 100, 26
-RAYS = [(-92, 60), (-122, 50), (-155, 56), (172, 46), (140, 54), (106, 48), (72, 54), (38, 46), (4, 56), (-30, 50)]
-def ray(cx, cy, ang, ln, start=R + T / 2 + 24):
-    a = math.radians(ang)
-    x1, y1 = cx + start * math.cos(a), cy + start * math.sin(a)
-    x2, y2 = cx + (start + ln) * math.cos(a), cy + (start + ln) * math.sin(a)
-    return f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}"/>'
+# 4. El Solete (variante B elegida: plano, sin contorno, rayos alternos largos y cortos)
+R, T = 110, 26
+SIZE = 420
+def rays_b(c, cy, ink, angles=range(-90, 270, 30)):
+    out = []
+    for i, ang in enumerate(angles):
+        ln = 54 if (ang + 90) % 60 == 0 else 40
+        a = math.radians(ang); r0 = R + 24
+        out.append(f'<line x1="{c+r0*math.cos(a):.1f}" y1="{cy+r0*math.sin(a):.1f}" x2="{c+(r0+ln)*math.cos(a):.1f}" '
+                   f'y2="{cy+(r0+ln)*math.sin(a):.1f}" stroke="{ink}" stroke-width="{T}" stroke-linecap="round"/>')
+    return "".join(out)
 
-def cara(cx, cy, mood, k=1.0):
-    ex, ey, el = 36 * k, 18 * k, 13 * k
-    eyes = []
-    for sx in (-1, 1):
-        if mood == "guino" and sx == 1:
-            eyes.append(f'<path d="M{cx+ex-14*k:.1f} {cy-ey+4*k:.1f} q14 -16 28 0" transform="scale(1)"/>')
-        else:
-            eyes.append(f'<line x1="{cx+sx*ex:.1f}" y1="{cy-ey-el/2:.1f}" x2="{cx+sx*ex:.1f}" y2="{cy-ey+el/2:.1f}"/>')
-    if mood == "sorpresa":
-        boca = f'<circle cx="{cx:.1f}" cy="{cy+30*k:.1f}" r="{11*k:.1f}"/>'
+def cara(cx, cy, mood, ink, k=1.1):
+    g = f'<g fill="none" stroke="{ink}" stroke-width="{16*k:.1f}" stroke-linecap="round" stroke-linejoin="round">'
+    ex = 36 * k
+    if mood == "guino":
+        g += f'<line x1="{cx-ex:.1f}" y1="{cy-24*k:.1f}" x2="{cx-ex:.1f}" y2="{cy-10*k:.1f}"/>'
+        g += f'<path d="M{cx+ex-13*k:.1f} {cy-12*k:.1f} q{13*k:.1f} {-15*k:.1f} {26*k:.1f} 0"/>'
     else:
-        boca = f'<path d="M{cx-30*k:.1f} {cy+20*k:.1f} q{30*k:.1f} {30*k:.1f} {60*k:.1f} 0"/>'
-    return "".join(eyes) + boca
+        for sx in (-1, 1):
+            g += f'<line x1="{cx+sx*ex:.1f}" y1="{cy-24*k:.1f}" x2="{cx+sx*ex:.1f}" y2="{cy-10*k:.1f}"/>'
+    if mood == "sorpresa":
+        g += f'</g><ellipse cx="{cx:.1f}" cy="{cy+28*k:.1f}" rx="{11*k:.1f}" ry="{14*k:.1f}" fill="{ink}"/>'
+    else:
+        g += f'<path d="M{cx-30*k:.1f} {cy+20*k:.1f} q{30*k:.1f} {30*k:.1f} {60*k:.1f} 0"/></g>'
+    return g
 
-def arco(cx, cy, a0=-48, a1=262):
-    # círculo abierto, como el trazo de pincel del sol del logotipo
-    p = lambda a: (cx + R * math.cos(math.radians(a)), cy + R * math.sin(math.radians(a)))
-    (x0, y0), (x1, y1) = p(a0), p(a1)
-    return f'<path d="M{x0:.1f} {y0:.1f} A{R} {R} 0 1 1 {x1:.1f} {y1:.1f}"/>'
+def solete(mood, body_ink, face_ink):
+    c = SIZE / 2
+    return rays_b(c, c, body_ink) + f'<circle cx="{c}" cy="{c}" r="{R}" fill="{body_ink}"/>' + cara(c, c, mood, face_ink)
 
-def solete(mood, fill, ink, size, face=None):
-    c = size / 2
-    rays = "".join(ray(c, c, a, l) for a, l in RAYS)
-    disco = f'<circle cx="{c}" cy="{c}" r="{R}" fill="{fill}"/>' if fill else ""
-    return (f'{disco}<g fill="none" stroke="{ink}" stroke-width="{T}" stroke-linecap="round" stroke-linejoin="round">'
-            f'{arco(c, c)}{rays}</g>'
-            f'<g fill="none" stroke="{face or ink}" stroke-width="{T*0.62:.1f}" stroke-linecap="round" stroke-linejoin="round">{cara(c, c, mood)}</g>')
-
-SIZE = 2 * (R + T / 2 + 24 + 58 + T / 2) + 8
 for mood in ["feliz", "guino", "sorpresa"]:
-    write("Mascota", f"solete-{mood}.svg", svg(SIZE, SIZE, solete(mood, C["sol"], C["deep"], SIZE), f"El Solete ({mood})"))
-write("Mascota", "solete-linea.svg", svg(SIZE, SIZE, solete("feliz", None, C["granate"], SIZE), "El Solete (una tinta)"))
-write("Mascota", "solete-crema.svg", svg(SIZE, SIZE, solete("feliz", C["sol"], C["crema"], SIZE, C["deep"]), "El Solete (sobre granate)"))
+    write("Mascota", f"solete-{mood}.svg", svg(SIZE, SIZE, solete(mood, C["sol"], C["deep"]), f"El Solete ({mood})"))
+write("Mascota", "solete-tinta.svg", svg(SIZE, SIZE, solete("feliz", C["deep"], C["sol"]), "El Solete (una tinta)"))
 
-# Solete asomando: medio sol saliendo, como en el logotipo, para pegar en el borde inferior
-W2 = SIZE; H2 = SIZE / 2 + 6; c = W2 / 2; cy = H2 + 4
-rays = "".join(ray(c, cy, a, l) for a, l in [(-162, 48), (-126, 56), (-90, 60), (-54, 56), (-18, 48)])
-body = (f'<path d="M{c-R} {cy} A{R} {R} 0 0 1 {c+R} {cy} Z" fill="{C["sol"]}"/>'
-        f'<g fill="none" stroke="{C["deep"]}" stroke-width="{T}" stroke-linecap="round">'
-        f'<path d="M{c-R} {cy+T} L{c-R} {cy} A{R} {R} 0 0 1 {c+R} {cy} L{c+R} {cy+T}"/>{rays}</g>'
-        f'<g fill="none" stroke="{C["deep"]}" stroke-width="{T*0.62:.1f}" stroke-linecap="round">{cara(c, cy - 40, "feliz", 0.85)}</g>')
+# Asomando: medio sol plano saliendo por un borde
+W2, H2 = SIZE, SIZE / 2 + 2; c = W2 / 2; cy = H2 + 2
+body = (rays_b(c, cy, C["sol"], range(-180, 1, 30)) +
+        f'<path d="M{c-R} {cy} A{R} {R} 0 0 1 {c+R} {cy} Z" fill="{C["sol"]}"/>' + cara(c, cy - 48, "feliz", C["deep"], 0.95))
 write("Mascota", "solete-asomando.svg", svg(W2, H2, body, "El Solete asomando"))
 
 # 5. Iconos (sin cambios)
