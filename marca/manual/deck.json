@@ -1,29 +1,81 @@
 {
   "v": 5,
-  "createdOnFiles": { "v": 1, "at": "2026-11-25T08:50:00Z" },
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-25T08:50:00Z"
+  },
   "lists": "css",
-  "format": { "v": 1, "shared": ["project/deck.css"] },
-  "title": "Manual de identidad El Yopal",
+  "format": {
+    "v": 1,
+    "shared": [
+      "project/deck.css"
+    ]
+  },
+  "title": "Manual de marca El Yopal",
   "cover": "portada",
-  "order": ["portada", "indice", "esencia", "personalidad", "logotipo", "logo-versiones", "logo-reglas", "logo-incorrecto", "solete", "solete-usos", "paleta", "color-uso", "fraunces", "familias", "graficos", "fotografia", "voz", "redes", "feed", "impresos", "web", "cierre"],
+  "order": [
+    "portada",
+    "logotipo",
+    "nombre",
+    "paleta",
+    "solete",
+    "ilustraciones",
+    "patron",
+    "tipografia",
+    "logo-uso",
+    "aplicaciones",
+    "papeleria",
+    "redes",
+    "kiosco",
+    "cierre"
+  ],
   "sections": {
-    "s0": { "description": "Portada e índice del manual.", "start": "portada" },
-    "s1": { "description": "Esencia: quién es El Yopal y cómo es su personalidad.", "start": "esencia" },
-    "s2": { "description": "Logotipo: versiones, área de respeto y usos incorrectos.", "start": "logotipo" },
-    "s3": { "description": "El Solete: la mascota y cómo se usa.", "start": "solete" },
-    "s4": { "description": "Color: paleta, proporciones y combinaciones legibles.", "start": "paleta" },
-    "s5": { "description": "Tipografía: Fraunces y sus familias complementarias.", "start": "fraunces" },
-    "s6": { "description": "Elementos gráficos, fotografía y voz de la marca.", "start": "graficos" },
-    "s7": { "description": "Aplicaciones: redes sociales, carta, pizarra y web.", "start": "redes" },
-    "s8": { "description": "Cierre y siguientes pasos.", "start": "cierre" }
+    "s0": {
+      "description": "Portada.",
+      "start": "portada"
+    },
+    "s1": {
+      "description": "La marca: logotipo, nombre, color y mascota.",
+      "start": "logotipo"
+    },
+    "s2": {
+      "description": "Recursos gráficos: ilustraciones, patrón, tipografía y uso del logo.",
+      "start": "ilustraciones"
+    },
+    "s3": {
+      "description": "Aplicaciones: envases, papelería, redes y el propio kiosco.",
+      "start": "aplicaciones"
+    },
+    "s4": {
+      "description": "Cierre.",
+      "start": "cierre"
+    }
   },
   "faces": {
-    "fraunces": { "family": "Fraunces", "href": "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,900,100&display=swap" },
-    "figtree": { "family": "Figtree", "href": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&display=swap" },
-    "barlow-condensed": { "family": "Barlow Condensed", "href": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap" },
-    "caveat-brush": { "family": "Caveat Brush", "href": "https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" }
+    "fraunces": {
+      "family": "Fraunces",
+      "href": "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,900,100&display=swap"
+    },
+    "figtree": {
+      "family": "Figtree",
+      "href": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&display=swap"
+    },
+    "barlow-condensed": {
+      "family": "Barlow Condensed",
+      "href": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap"
+    },
+    "caveat-brush": {
+      "family": "Caveat Brush",
+      "href": "https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap"
+    }
   },
   "designSystems": [
-    { "title": "El Yopal", "namespace": "elyopal", "artifact": "https://claude.ai/artifact/EZdRt8FUCishJC3ozdZ8Ps", "version": "1795589422-8857", "copiedAt": "2026-11-25T08:50:00Z" }
+    {
+      "title": "El Yopal",
+      "namespace": "elyopal",
+      "artifact": "https://claude.ai/artifact/EZdRt8FUCishJC3ozdZ8Ps",
+      "version": "1795589422-8857",
+      "copiedAt": "2026-11-25T08:50:00Z"
+    }
   ]
 }

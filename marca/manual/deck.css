@@ -2,52 +2,42 @@
   --granate: #8C1D2F;
   --granate-hondo: #4A0E18;
   --crema: #FFF4E2;
-  --superficie-alt: #FBE6C6;
+  --crema-alt: #FBE6C6;
   --sol: #FFC83D;
   --azul: #6F8FCF;
   --galleta: #D99148;
   --tinta: #2B1014;
   --tinta-suave: #6E4A4F;
-  --linea: #E6CFB5;
 }
 
-body { font-family: 'Figtree', Arial, sans-serif; color: #2B1014; }
+body { font-family: 'Figtree', Arial, sans-serif; color: #FFF4E2; }
 
-section { background: #FFF4E2; padding: 128px 128px 160px; box-sizing: border-box; counter-increment: page; }
-section.oscuro { background: #8C1D2F; color: #FFF4E2; }
-section.alt { background: #FBE6C6; }
-section.portada-s, section.cierre-s { padding: 128px; }
+/* Tablero: fondo granate hondo, paneles granate y crema */
+section { background: #4A0E18; padding: 96px 96px 144px; box-sizing: border-box; counter-increment: page; }
+section.lleno { padding: 0; }
+section.granate { background: #8C1D2F; }
 
-/* Tipografía del manual (escala 120 / 72 / 44 / 32 / 24) */
-h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 900; font-size: 120px; line-height: 0.95; margin: 0; color: #FFF4E2; }
-h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 900; font-size: 72px; line-height: 1; margin: 0; color: #8C1D2F; }
-section.oscuro h2 { color: #FFF4E2; }
-h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 900; font-size: 44px; line-height: 1.05; margin: 0; color: #8C1D2F; }
-.eyebrow { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; text-transform: uppercase; color: #8C1D2F; margin: 0 0 20px; }
-section.oscuro .eyebrow { color: #FFC83D; }
-.lead { font-size: 32px; line-height: 1.4; margin: 0; color: #2B1014; }
-section.oscuro .lead { color: #FFF4E2; }
-.txt { font-size: 24px; line-height: 1.45; margin: 0; color: #6E4A4F; }
-.etq { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0; color: #2B1014; }
-.mano { font-family: 'Caveat Brush', 'Brush Script MT', cursive; font-size: 44px; line-height: 1.1; margin: 0; color: #8C1D2F; }
+.panel { background: #8C1D2F; border-radius: 28px; padding: 56px; display: grid; grid-template-columns: 340px 1fr; gap: 56px; box-sizing: border-box; height: 840px; }
+.panel.sol { background: #FFC83D; }
+.panel.libre { display: flex; flex-direction: column; gap: 24px; padding: 40px; }
 
-/* Pie de página: una fila fija abajo */
-.pie { position: absolute; left: 128px; bottom: 64px; width: 1664px; display: flex; justify-content: space-between; }
-.pie p { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.1em; text-transform: uppercase; color: #6E4A4F; margin: 0; }
-section.oscuro .pie p { color: #FBE6C6; }
+.lab { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 24px; color: #FFF4E2; }
+.desc { font-size: 26px; line-height: 1.45; margin: 0; color: #FBE6C6; }
+.panel.sol .lab, .panel.sol .desc { color: #4A0E18; }
+.pie-foto { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0; color: #FBE6C6; }
+.nota { font-size: 24px; font-style: italic; margin: 0; color: #6E4A4F; }
+.nota.clara { color: #FBE6C6; }
+
+.grande { font-family: 'Fraunces', Georgia, serif; font-weight: 900; font-size: 72px; line-height: 1; margin: 0; color: #FFF4E2; }
+
+.tile { border-radius: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; box-sizing: border-box; }
+.tile.crema { background: #FFF4E2; }
+.tile.granate { background: #8C1D2F; }
+
+/* Pie: una fila fija abajo */
+.pie { position: absolute; left: 96px; bottom: 56px; width: 1728px; display: flex; justify-content: space-between; }
+.pie p { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.1em; text-transform: uppercase; color: #C98A93; margin: 0; }
 .pie .num::after { content: counter(page); }
 
-/* Estructuras */
-.cab { margin-bottom: 56px; }
-.fila { display: flex; gap: 40px; }
-.col { display: flex; flex-direction: column; gap: 16px; }
-.dos { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.tarjeta { background: #FBE6C6; border-radius: 24px; padding: 40px; display: flex; flex-direction: column; gap: 16px; }
-.tile { border-radius: 24px; display: flex; align-items: center; justify-content: center; }
-.pie-img { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.1em; text-transform: uppercase; color: #6E4A4F; margin: 0; }
-.no { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.1em; text-transform: uppercase; color: #FFF4E2; background: #8C1D2F; padding: 6px 16px; border-radius: 999px; margin: 0; }
-.si { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.1em; text-transform: uppercase; color: #4A0E18; background: #FFC83D; padding: 6px 16px; border-radius: 999px; margin: 0; }
-
-/* Llegada suave de los bloques */
-@keyframes sube { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-.entra { animation: sube 600ms ease-out both; animation-delay: calc(var(--i, 0) * 120ms); }
+@keyframes aparece { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.entra { animation: aparece 600ms ease-out both; animation-delay: calc(var(--i, 0) * 110ms); }

@@ -48,7 +48,9 @@ El logotipo es un rotulado a mano y no se escribe con ninguna fuente. Para todo 
 - **Trazo de pincel**: cuando haga falta dibujar algo (un subrayado, una flecha, un rayo), se hace como el logotipo: trazo grueso uniforme con puntas redondas.
 - **Bloques de color** con `radio-l` para separar foto y texto.
 - **Palabra repetida**: una palabra en `titular-xl` repetida en líneas rellenas y en contorno (componente PostTipografico).
-- **Galletas dibujadas**: círculos `galleta` con pepitas `granate-hondo`. Sirven de marcador o de relleno, pero la foto real del producto siempre gana.
+- **Ilustraciones de trazo a mano** (grupo **Ilustraciones**): kiosco, vaso, galleta, revistas, lata, snacks, pizarra y sol, en versión pegatina o línea. Son el recurso gráfico principal junto al logotipo; la foto real del producto siempre gana.
+- **Patrón**: las ilustraciones en línea repetidas y giradas, para papel de envolver, fondos de historias y la web.
+- **Dos tintas primero**: granate y crema hacen casi todo el trabajo; sol y azul son acentos.
 - Formas permitidas: círculos, píldoras, arcos abiertos y rayos de puntas redondas. Nada de degradados, sombras difuminadas en redes ni texturas.
 
 ## Iconografía
