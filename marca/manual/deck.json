@@ -15,17 +15,16 @@
   "cover": "portada",
   "order": [
     "portada",
+    "idea",
     "logotipo",
-    "nombre",
+    "versiones",
+    "logo-color",
     "paleta",
+    "tipografia",
     "solete",
     "ilustraciones",
-    "patron",
-    "tipografia",
-    "logo-uso",
-    "aplicaciones",
-    "papeleria",
     "redes",
+    "aplicaciones",
     "kiosco",
     "cierre"
   ],
@@ -35,16 +34,16 @@
       "start": "portada"
     },
     "s1": {
-      "description": "La marca: logotipo, nombre, color y mascota.",
-      "start": "logotipo"
+      "description": "Idea y logotipo.",
+      "start": "idea"
     },
     "s2": {
-      "description": "Recursos gráficos: ilustraciones, patrón, tipografía y uso del logo.",
-      "start": "ilustraciones"
+      "description": "Color, tipografía, mascota e ilustraciones.",
+      "start": "paleta"
     },
     "s3": {
-      "description": "Aplicaciones: envases, papelería, redes y el propio kiosco.",
-      "start": "aplicaciones"
+      "description": "Aplicaciones.",
+      "start": "redes"
     },
     "s4": {
       "description": "Cierre.",

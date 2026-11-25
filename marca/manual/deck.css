@@ -1,43 +1,24 @@
-:root {
-  --granate: #8C1D2F;
-  --granate-hondo: #4A0E18;
-  --crema: #FFF4E2;
-  --crema-alt: #FBE6C6;
-  --sol: #FFC83D;
-  --azul: #6F8FCF;
-  --galleta: #D99148;
-  --tinta: #2B1014;
-  --tinta-suave: #6E4A4F;
-}
+:root { --granate: #8C1D2F; --granate-hondo: #4A0E18; --crema: #FFF4E2; --sol: #FFC83D; --azul: #6F8FCF; --tinta: #2B1014; --tinta-suave: #6E4A4F; --linea: #E8DCD0; }
 
-body { font-family: 'Figtree', Arial, sans-serif; color: #FFF4E2; }
+body { font-family: 'Figtree', Arial, sans-serif; color: #2B1014; }
+section { background: #FFFFFF; padding: 104px 128px 150px; box-sizing: border-box; counter-increment: page; }
 
-/* Tablero: fondo granate hondo, paneles granate y crema */
-section { background: #4A0E18; padding: 96px 96px 144px; box-sizing: border-box; counter-increment: page; }
-section.lleno { padding: 0; }
-section.granate { background: #8C1D2F; }
+/* Cabecera de cada página: título a la izquierda, sección a la derecha, una línea debajo */
+.cab { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #8C1D2F; padding-bottom: 20px; margin-bottom: 56px; }
+h2 { font-family: 'Sansita', 'Arial Black', sans-serif; font-weight: 900; font-size: 64px; line-height: 1; margin: 0; color: #8C1D2F; }
+.lab { font-family: 'Figtree', Arial, sans-serif; font-weight: 800; font-size: 24px; letter-spacing: 0.12em; text-transform: uppercase; margin: 0; color: #6E4A4F; }
+.desc { font-size: 28px; line-height: 1.45; margin: 0; color: #2B1014; }
+.txt { font-size: 24px; line-height: 1.45; margin: 0; color: #6E4A4F; }
+.pie-img { font-family: 'Figtree', Arial, sans-serif; font-weight: 800; font-size: 24px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0; color: #2B1014; }
 
-.panel { background: #8C1D2F; border-radius: 28px; padding: 56px; display: grid; grid-template-columns: 340px 1fr; gap: 56px; box-sizing: border-box; height: 840px; }
-.panel.sol { background: #FFC83D; }
-.panel.libre { display: flex; flex-direction: column; gap: 24px; padding: 40px; }
+.dos { display: grid; grid-template-columns: 520px 1fr; gap: 80px; }
+.tile { border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; box-sizing: border-box; }
+.crema { background: #FFF4E2; }
+.granate { background: #8C1D2F; }
 
-.lab { font-family: 'Figtree', Arial, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 24px; color: #FFF4E2; }
-.desc { font-size: 26px; line-height: 1.45; margin: 0; color: #FBE6C6; }
-.panel.sol .lab, .panel.sol .desc { color: #4A0E18; }
-.pie-foto { font-family: 'Figtree', Arial, sans-serif; font-weight: 800; font-size: 24px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0; color: #FBE6C6; }
-.nota { font-size: 24px; font-style: italic; margin: 0; color: #6E4A4F; }
-.nota.clara { color: #FBE6C6; }
-
-.grande { font-family: 'Sansita', 'Arial Black', sans-serif; font-weight: 900; font-size: 72px; line-height: 1; margin: 0; color: #FFF4E2; }
-
-.tile { border-radius: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; box-sizing: border-box; }
-.tile.crema { background: #FFF4E2; }
-.tile.granate { background: #8C1D2F; }
-
-/* Pie: una fila fija abajo */
-.pie { position: absolute; left: 96px; bottom: 56px; width: 1728px; display: flex; justify-content: space-between; }
-.pie p { font-family: 'Figtree', Arial, sans-serif; font-weight: 800; font-size: 24px; letter-spacing: 0.1em; text-transform: uppercase; color: #C98A93; margin: 0; }
+.pie { position: absolute; left: 128px; bottom: 60px; width: 1664px; display: flex; justify-content: space-between; border-top: 1px solid #E8DCD0; padding-top: 18px; }
+.pie p { font-family: 'Figtree', Arial, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.08em; text-transform: uppercase; color: #6E4A4F; margin: 0; }
 .pie .num::after { content: counter(page); }
 
-@keyframes aparece { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.entra { animation: aparece 600ms ease-out both; animation-delay: calc(var(--i, 0) * 110ms); }
+@keyframes aparece { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.entra { animation: aparece 500ms ease-out both; animation-delay: calc(var(--i, 0) * 100ms); }
