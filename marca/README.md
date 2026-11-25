@@ -22,7 +22,7 @@ La regla de reparto en cualquier pieza: más o menos 60 % `granate` o `crema` de
 - `granate` es la marca. Fondo de los posts principales, botones y logotipo sobre crema.
 - `crema` es el fondo claro y el color del texto sobre granate. No es blanco: nunca uses `#FFFFFF` de fondo.
 - `sol` es para lo que tiene que saltar a la vista: precios, ofertas y el Solete. Sobre `sol` el texto va siempre en `granate` o `granate-hondo`.
-- `azul` es un denim medio, el contrapunto frío del granate: bloques de foto de producto, bebidas frías, novedades e historias. Texto encima en `granate-hondo`; el `granate` solo en titulares grandes y en el logotipo.
+- `azul` es un denim medio, el contrapunto frío del granate: bloques de foto de producto, bebidas frías, novedades e historias. Texto encima en `granate-hondo` (4,8:1), y el logotipo también en su versión `logotipo-tinta.svg`: el `granate` sobre azul solo llega a 2,8:1.
 - `galleta` solo para detalles pequeños, nunca para texto.
 - `granate-hondo` es la sombra de las pegatinas y el color de texto sobre colores claros vivos.
 - En la web, usa los tokens de superficie (`superficie`, `superficie-alt`, `tinta`, `tinta-suave`, `linea`), que cambian con el tema oscuro. Los posts e imágenes de redes van siempre en tema `claro`.
