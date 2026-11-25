@@ -1,4 +1,4 @@
-<!-- @dsCard group="Marca" height=250 subtitle="La mascota, en sus tres caras, y el avatar de perfil" -->
+<!-- @dsCard group="Marca" height=470 subtitle="La mascota: el sol del logotipo con cara" -->
 <!doctype html>
 <html lang="es">
 <head>
@@ -8,21 +8,29 @@
   html, body { margin: 0; }
   body { background: var(--superficie); color: var(--tinta); font-family: var(--font-texto); padding: 16px; }
 
-  .row { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
-  figure { margin: 0; display: grid; gap: 6px; justify-items: center; }
-  figure img { width: 150px; height: 150px; }
-  figure img.av { width: 140px; height: 140px; border-radius: 50%; }
-  figcaption { font: 700 12px/1 var(--font-rotulo); letter-spacing: .08em; text-transform: uppercase; color: var(--tinta-suave); }
+  .row { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; }
+  figure { margin: 0; display: grid; gap: 8px; justify-items: center; }
+  .f { width: 150px; height: 150px; border-radius: var(--radio-m); display: grid; place-items: center; }
+  .f img { width: 124px; height: 124px; }
+  .as { width: 316px; height: 150px; border-radius: var(--radio-m); background: var(--cielo); display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
+  .as img { width: 220px; display: block; }
+  figcaption { font: 700 12px/1.2 var(--font-rotulo); letter-spacing: .08em; text-transform: uppercase; color: var(--tinta-suave); text-align: center; }
+  .ref { display: flex; gap: 16px; align-items: center; margin-top: 24px; padding: 16px; border-radius: var(--radio-m); background: var(--crema); flex-wrap: wrap; }
+  .ref img { height: 110px; }
+  .ref p { margin: 0; max-width: 340px; font: 500 14px/1.45 var(--font-texto); color: var(--tinta); }
 
 </style>
 </head>
 <body>
-<div class="row">
-  <figure><img src="/_blob/2d063f516c92a47327f68196317c1489" alt="Solete sonriendo"><figcaption>Feliz · por defecto</figcaption></figure>
-  <figure><img src="/_blob/e9e1d47197e6c4648287df11caba0d31" alt="Solete guiñando un ojo"><figcaption>Guiño · ofertas</figcaption></figure>
-  <figure><img src="/_blob/6dd418aa8fdde52bbe4213d66e54f2bc" alt="Solete sorprendido"><figcaption>Sorpresa · novedades</figcaption></figure>
-  <figure><img class="av" src="/_blob/6153ca88c5ae272a023bdab69e1be4a4" alt="Avatar de El Yopal"><figcaption>Avatar de perfil</figcaption></figure>
+<div class="row" data-theme="claro">
+  <figure><div class="f" style="background:var(--crema)"><img src="/_blob/babb8bc549068fdcf45d0cf89acdf240" alt="Solete sonriendo"></div><figcaption>Feliz · por defecto</figcaption></figure>
+  <figure><div class="f" style="background:var(--crema)"><img src="/_blob/2a63f6ee5c05b84fefaab454ce650008" alt="Solete guiñando"></div><figcaption>Guiño · ofertas</figcaption></figure>
+  <figure><div class="f" style="background:var(--crema)"><img src="/_blob/205103ff8c6a8776cf33626d8a2397e6" alt="Solete sorprendido"></div><figcaption>Sorpresa · novedades</figcaption></figure>
+  <figure><div class="f" style="background:var(--granate)"><img src="/_blob/91d08eecd7a5be220ee1dde34db5e973" alt="Solete para fondo granate"></div><figcaption>Sobre granate</figcaption></figure>
+  <figure><div class="f" style="background:var(--crema)"><img src="/_blob/d6e782c0421aa2f5321a69e2c4f8092e" alt="Solete a una tinta"></div><figcaption>Una tinta</figcaption></figure>
+  <figure><div class="as"><img src="/_blob/2f12c8204a8dd7dd9a8dbef2dd958b96" alt="Solete asomando"></div><figcaption>Asomando · bordes</figcaption></figure>
 </div>
+<div class="ref" data-theme="claro"><img src="/_blob/821369b3fbc76aa387486f26bc18b3dc" alt="Logotipo de El Yopal"><p>El Solete sale del sol del logotipo: el mismo trazo grueso de puntas redondas, el círculo abierto como una pincelada que no se cierra y los rayos sueltos, separados del círculo y de largos un poco distintos.</p></div>
 <script>
   /* Reduce cada lienzo de 1080 px al ancho de su marco */
   document.querySelectorAll('.yp-lienzo-marco').forEach(function (m) {

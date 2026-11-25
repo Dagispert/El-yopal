@@ -1,145 +1,114 @@
-"""Genera los SVG de marca de El Yopal (texto convertido a trazos)."""
+"""Genera los SVG de marca de El Yopal.
+
+- Logotipo: el logotipo ORIGINAL vectorizado (logo-original/path.txt), solo cambia la tinta.
+- Solete: mascota de trazo, con la misma lógica que el sol del logotipo
+  (trazo uniforme de puntas redondas, rayos separados del círculo).
+"""
 import math, os, sys
 from fontTools.ttLib import TTFont
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
-from fontTools.pens.boundsPen import BoundsPen
 
-FONTS, OUT = sys.argv[1], sys.argv[2]
-C = dict(granate="#8C1D2F", deep="#4A0E18", crema="#FFF4E2", sol="#FFC83D",
-         cielo="#BCD4F6", galleta="#D99148", blanco="#FFFFFF", rosa="#F28B82")
+FONTS, LOGO, OUT = sys.argv[1], sys.argv[2], sys.argv[3]
+C = dict(granate="#8C1D2F", deep="#4A0E18", crema="#FFF4E2", sol="#FFC83D", blanco="#FFFFFF")
 
-def load(name):
-    f = TTFont(os.path.join(FONTS, name))
-    return f, f.getGlyphSet(), f.getBestCmap()
-
-BAGEL = load("BagelFatOne-Regular.ttf")
-BARLOW = load("BarlowCondensed-Bold.ttf")
-
-def text_path(font, text, size, x=0, y=0, tracking=0):
-    """Devuelve (d, ancho, glyph_boxes) para texto en baseline y."""
-    f, gs, cmap = font
-    upm = f["head"].unitsPerEm
-    s = size / upm
-    pen = SVGPathPen(gs)
-    cx = 0
-    boxes = []
-    hmtx = f["hmtx"]
-    kern = {}
-    for i, ch in enumerate(text):
-        g = cmap.get(ord(ch))
-        if g is None:
-            cx += size * 0.3
-            continue
-        tp = TransformPen(pen, (s, 0, 0, -s, x + cx, y))
-        gs[g].draw(tp)
-        bp = BoundsPen(gs)
-        gs[g].draw(bp)
-        b = bp.bounds
-        if b:
-            boxes.append((ch, x + cx + b[0] * s, y - b[3] * s, x + cx + b[2] * s, y - b[1] * s))
-        cx += hmtx[g][0] * s + tracking
-    return pen.getCommands(), cx - tracking, boxes
-
-def rays(cx, cy, r_in, r_out, a0, a1, n, width, color):
-    out = []
-    for i in range(n):
-        a = math.radians(a0 + (a1 - a0) * i / (n - 1))
-        x1, y1 = cx + r_in * math.cos(a), cy - r_in * math.sin(a)
-        x2, y2 = cx + r_out * math.cos(a), cy - r_out * math.sin(a)
-        out.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="{color}" stroke-width="{width}" stroke-linecap="round"/>')
-    return "\n  ".join(out)
-
-def wordmark(color, ray_color):
-    """Logotipo: 'El Yopal' con el sol saliendo sobre la última l."""
-    d, w, boxes = text_path(BAGEL, "El Yopal", 200, 0, 0, tracking=-4)
-    l = boxes[-1]  # la última 'l'
-    cx = (l[1] + l[3]) / 2
-    top = l[2]
-    r = rays(cx, top - 6, 26, 64, 20, 160, 5, 15, ray_color)
-    minx = min(b[1] for b in boxes); maxx = max(max(b[3] for b in boxes), cx + 64 * math.cos(math.radians(20)) + 8)
-    miny = top - 6 - 64 - 10; maxy = max(b[4] for b in boxes)
-    pad = 12
-    vb = (minx - pad, miny - pad, maxx - minx + 2 * pad, maxy - miny + 2 * pad)
-    return d, r, vb, (minx, miny, maxx, maxy)
-
-def svg(vb, body, title):
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vb[0]:.1f} {vb[1]:.1f} {vb[2]:.1f} {vb[3]:.1f}" '
-            f'width="{vb[2]:.0f}" height="{vb[3]:.0f}" role="img" aria-label="{title}">\n  <title>{title}</title>\n  {body}\n</svg>\n')
+head, LOGO_D = open(LOGO).read().split("\n", 1)
+LW, LH = map(float, head.split())
 
 def write(group, name, content):
-    p = os.path.join(OUT, group)
-    os.makedirs(p, exist_ok=True)
-    with open(os.path.join(p, name), "w") as fh:
-        fh.write(content)
+    p = os.path.join(OUT, group); os.makedirs(p, exist_ok=True)
+    open(os.path.join(p, name), "w").write(content)
 
-# 1. Logotipo en sus tres tintas
-for name, ink, ray in [("logotipo-granate.svg", C["granate"], C["sol"]),
-                       ("logotipo-crema.svg", C["crema"], C["sol"]),
-                       ("logotipo-tinta.svg", C["deep"], C["deep"])]:
-    d, r, vb, _ = wordmark(ink, ray)
-    write("Logos", name, svg(vb, f'{r}\n  <path d="{d}" fill="{ink}"/>', "El Yopal"))
+def svg(w, h, body, title, vb=None):
+    vb = vb or f"0 0 {w:.0f} {h:.0f}"
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vb}" width="{w:.0f}" height="{h:.0f}" role="img" aria-label="{title}">\n'
+            f'  <title>{title}</title>\n  {body}\n</svg>\n')
 
-# 2. Bloque de marca: logotipo + URBAN EXPRESS (lo que se lee en el toldo)
-for name, ink, ray, sub in [("bloque-granate.svg", C["granate"], C["sol"], C["deep"]),
-                            ("bloque-crema.svg", C["crema"], C["sol"], C["sol"])]:
-    d, r, vb, (minx, miny, maxx, maxy) = wordmark(ink, ray)
-    sd, sw, sb = text_path(BARLOW, "URBAN EXPRESS · CAFÉ & GALLETAS", 44, 0, 0, tracking=4)
-    scale = (maxx - minx) / sw
-    sy = maxy + 70
-    body = (f'{r}\n  <path d="{d}" fill="{ink}"/>\n'
-            f'  <g transform="translate({minx:.1f} {sy:.1f}) scale({scale:.4f})"><path d="{sd}" fill="{sub}"/></g>')
-    vb2 = (vb[0], vb[1], vb[2], (sy + 12) - vb[1])
-    write("Logos", name, svg(vb2, body, "El Yopal · Urban Express"))
+def logo(ink, x=0, y=0, s=1.0):
+    return f'<path transform="translate({x:.1f} {y:.1f}) scale({s:.4f})" fill-rule="evenodd" fill="{ink}" d="{LOGO_D}"/>'
 
-# 3. El Solete (mascota)
-def solete_group(cx, cy, R, mood="feliz", sticker=True):
-    n = 12
-    parts = []
-    def sun(fill, stroke=None, sw=0):
-        s = f' stroke="{stroke}" stroke-width="{sw}" stroke-linejoin="round" stroke-linecap="round"' if stroke else ""
-        rr = []
-        for i in range(n):
-            a = 2 * math.pi * i / n
-            x1, y1 = cx + R * 0.95 * math.cos(a), cy + R * 0.95 * math.sin(a)
-            x2, y2 = cx + R * 1.42 * math.cos(a), cy + R * 1.42 * math.sin(a)
-            rr.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="{stroke or fill}" stroke-width="{R*0.26 + sw:.1f}" stroke-linecap="round"/>')
-        return "\n  ".join(rr) + f'\n  <circle cx="{cx}" cy="{cy}" r="{R + sw/2:.1f}" fill="{stroke or fill}"/>'
-    if sticker:
-        parts.append(f'<g transform="translate({R*0.06:.1f} {R*0.08:.1f})">' + sun(C["deep"], C["deep"], R * 0.16) + '</g>')
-        parts.append(sun(C["blanco"], C["blanco"], R * 0.16))
-    parts.append(sun(C["sol"]))
-    ex, ey, er = R * 0.32, R * 0.12, R * 0.11
-    ink = C["deep"]
-    if mood == "guino":
-        parts.append(f'<ellipse cx="{cx-ex:.1f}" cy="{cy-ey:.1f}" rx="{er*0.85:.1f}" ry="{er*1.25:.1f}" fill="{ink}"/>')
-        parts.append(f'<path d="M{cx+ex-er*1.2:.1f} {cy-ey:.1f} q{er*1.2:.1f} {-er*1.3:.1f} {er*2.4:.1f} 0" fill="none" stroke="{ink}" stroke-width="{R*0.08:.1f}" stroke-linecap="round"/>')
-    else:
-        for sx in (-1, 1):
-            parts.append(f'<ellipse cx="{cx+sx*ex:.1f}" cy="{cy-ey:.1f}" rx="{er*0.85:.1f}" ry="{er*1.25:.1f}" fill="{ink}"/>')
-    # mejillas
+# 1. Logotipo original en tres tintas (mismo dibujo, solo cambia el color)
+for name, ink in [("logotipo-granate.svg", C["granate"]), ("logotipo-crema.svg", C["crema"]), ("logotipo-tinta.svg", C["deep"])]:
+    write("Logos", name, svg(LW / 3, LH / 3, logo(ink), "El Yopal", vb=f"0 0 {LW:.0f} {LH:.0f}"))
+
+# 2. Bloque: logotipo + rótulo del toldo debajo
+f = TTFont(os.path.join(FONTS, "BarlowCondensed-Bold.ttf")); gs = f.getGlyphSet(); cmap = f.getBestCmap()
+def text_d(text, size, tracking):
+    s = size / f["head"].unitsPerEm; pen = SVGPathPen(gs); cx = 0
+    for ch in text:
+        g = cmap[ord(ch)]
+        gs[g].draw(TransformPen(pen, (s, 0, 0, -s, cx, 0)))
+        cx += f["hmtx"][g][0] * s + tracking
+    return pen.getCommands(), cx - tracking
+for name, ink, sub in [("bloque-granate.svg", C["granate"], C["deep"]), ("bloque-crema.svg", C["crema"], C["sol"])]:
+    td, tw = text_d("URBAN EXPRESS · CAFÉ & GALLETAS", 100, 10)
+    tw_target = LW * 0.62
+    sc = tw_target / tw
+    ty = LH + 150 * sc + 40
+    body = logo(ink) + f'\n  <g transform="translate({(LW - tw_target) / 2:.1f} {ty:.1f}) scale({sc:.4f})"><path d="{td}" fill="{sub}"/></g>'
+    H = ty + 40
+    write("Logos", name, svg(LW / 3, H / 3, body, "El Yopal · Urban Express", vb=f"0 0 {LW:.0f} {H:.0f}"))
+
+# 3. Avatar: logotipo crema sobre granate
+S = 1080; s = (S * 0.84) / LW
+write("Logos", "avatar-perfil.svg", svg(S, S, f'<rect width="{S}" height="{S}" fill="{C["granate"]}"/>\n  ' +
+      logo(C["crema"], (S - LW * s) / 2, (S - LH * s) / 2 + 10, s), "El Yopal · avatar"))
+
+# 4. El Solete
+# Proporciones medidas en el sol del logotipo: trazo ≈ 0,26 del radio del arco,
+# hueco entre arco y rayos ≈ 0,22 del radio, rayos de longitud ligeramente desigual.
+R, T = 100, 26
+RAYS = [(-92, 60), (-122, 50), (-155, 56), (172, 46), (140, 54), (106, 48), (72, 54), (38, 46), (4, 56), (-30, 50)]
+def ray(cx, cy, ang, ln, start=R + T / 2 + 24):
+    a = math.radians(ang)
+    x1, y1 = cx + start * math.cos(a), cy + start * math.sin(a)
+    x2, y2 = cx + (start + ln) * math.cos(a), cy + (start + ln) * math.sin(a)
+    return f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}"/>'
+
+def cara(cx, cy, mood, k=1.0):
+    ex, ey, el = 36 * k, 18 * k, 13 * k
+    eyes = []
     for sx in (-1, 1):
-        parts.append(f'<ellipse cx="{cx+sx*R*0.55:.1f}" cy="{cy+R*0.18:.1f}" rx="{R*0.13:.1f}" ry="{R*0.08:.1f}" fill="{C["rosa"]}" opacity=".9"/>')
-    # boca
+        if mood == "guino" and sx == 1:
+            eyes.append(f'<path d="M{cx+ex-14*k:.1f} {cy-ey+4*k:.1f} q14 -16 28 0" transform="scale(1)"/>')
+        else:
+            eyes.append(f'<line x1="{cx+sx*ex:.1f}" y1="{cy-ey-el/2:.1f}" x2="{cx+sx*ex:.1f}" y2="{cy-ey+el/2:.1f}"/>')
     if mood == "sorpresa":
-        parts.append(f'<ellipse cx="{cx}" cy="{cy+R*0.3:.1f}" rx="{R*0.12:.1f}" ry="{R*0.15:.1f}" fill="{ink}"/>')
+        boca = f'<circle cx="{cx:.1f}" cy="{cy+30*k:.1f}" r="{11*k:.1f}"/>'
     else:
-        mw = R * 0.42
-        parts.append(f'<path d="M{cx-mw/2:.1f} {cy+R*0.2:.1f} q{mw/2:.1f} {R*0.32:.1f} {mw:.1f} 0" fill="none" stroke="{ink}" stroke-width="{R*0.08:.1f}" stroke-linecap="round"/>')
-    return "\n  ".join(parts)
+        boca = f'<path d="M{cx-30*k:.1f} {cy+20*k:.1f} q{30*k:.1f} {30*k:.1f} {60*k:.1f} 0"/>'
+    return "".join(eyes) + boca
 
-for mood in ["feliz", "guino", "sorpresa"]:
-    R = 100
-    size = R * 1.42 * 2 + R * 0.5
+def arco(cx, cy, a0=-48, a1=262):
+    # círculo abierto, como el trazo de pincel del sol del logotipo
+    p = lambda a: (cx + R * math.cos(math.radians(a)), cy + R * math.sin(math.radians(a)))
+    (x0, y0), (x1, y1) = p(a0), p(a1)
+    return f'<path d="M{x0:.1f} {y0:.1f} A{R} {R} 0 1 1 {x1:.1f} {y1:.1f}"/>'
+
+def solete(mood, fill, ink, size, face=None):
     c = size / 2
-    write("Mascota", f"solete-{mood}.svg", svg((0, 0, size, size), solete_group(c, c - 4, R, mood), f"El Solete ({mood})"))
+    rays = "".join(ray(c, c, a, l) for a, l in RAYS)
+    disco = f'<circle cx="{c}" cy="{c}" r="{R}" fill="{fill}"/>' if fill else ""
+    return (f'{disco}<g fill="none" stroke="{ink}" stroke-width="{T}" stroke-linecap="round" stroke-linejoin="round">'
+            f'{arco(c, c)}{rays}</g>'
+            f'<g fill="none" stroke="{face or ink}" stroke-width="{T*0.62:.1f}" stroke-linecap="round" stroke-linejoin="round">{cara(c, c, mood)}</g>')
 
-# 4. Avatar de perfil (círculo granate + Solete)
-S = 1080
-body = f'<rect width="{S}" height="{S}" fill="{C["granate"]}"/>\n  ' + solete_group(S/2, S/2 - 10, 250, "feliz")
-write("Logos", "avatar-perfil.svg", svg((0, 0, S, S), body, "El Yopal · avatar"))
+SIZE = 2 * (R + T / 2 + 24 + 58 + T / 2) + 8
+for mood in ["feliz", "guino", "sorpresa"]:
+    write("Mascota", f"solete-{mood}.svg", svg(SIZE, SIZE, solete(mood, C["sol"], C["deep"], SIZE), f"El Solete ({mood})"))
+write("Mascota", "solete-linea.svg", svg(SIZE, SIZE, solete("feliz", None, C["granate"], SIZE), "El Solete (una tinta)"))
+write("Mascota", "solete-crema.svg", svg(SIZE, SIZE, solete("feliz", C["sol"], C["crema"], SIZE, C["deep"]), "El Solete (sobre granate)"))
 
-# 5. Iconos de producto: trazo granate 2px a 24px, puntas redondas
+# Solete asomando: medio sol saliendo, como en el logotipo, para pegar en el borde inferior
+W2 = SIZE; H2 = SIZE / 2 + 6; c = W2 / 2; cy = H2 + 4
+rays = "".join(ray(c, cy, a, l) for a, l in [(-162, 48), (-126, 56), (-90, 60), (-54, 56), (-18, 48)])
+body = (f'<path d="M{c-R} {cy} A{R} {R} 0 0 1 {c+R} {cy} Z" fill="{C["sol"]}"/>'
+        f'<g fill="none" stroke="{C["deep"]}" stroke-width="{T}" stroke-linecap="round">'
+        f'<path d="M{c-R} {cy+T} L{c-R} {cy} A{R} {R} 0 0 1 {c+R} {cy} L{c+R} {cy+T}"/>{rays}</g>'
+        f'<g fill="none" stroke="{C["deep"]}" stroke-width="{T*0.62:.1f}" stroke-linecap="round">{cara(c, cy - 40, "feliz", 0.85)}</g>')
+write("Mascota", "solete-asomando.svg", svg(W2, H2, body, "El Solete asomando"))
+
+# 5. Iconos (sin cambios)
 ICONS = {
  "cafe": '<path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3c-.8 1 .8 2 0 3M11.5 3c-.8 1 .8 2 0 3"/>',
  "galleta": '<circle cx="12" cy="12" r="8.5"/><circle cx="9" cy="9.5" r="1" fill="currentColor"/><circle cx="14.5" cy="8.5" r="1" fill="currentColor"/><circle cx="15" cy="14" r="1" fill="currentColor"/><circle cx="9.5" cy="15" r="1" fill="currentColor"/>',

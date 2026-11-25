@@ -6,6 +6,7 @@ Identidad visual de El Yopal (kiosco Urban Express: café, galletas artesanas, s
 - `marca/tokens.json`: colores, tipografías, espacios, radios y sombras.
 - `marca/assets/`: logotipos, el Solete (mascota), iconos y fotos del kiosco, en SVG/JPG.
 - `marca/components/`: plantillas HTML de posts, historias, carta, pizarra y piezas web.
-- `marca/scripts/make_svgs.py`: regenera los SVG desde las fuentes (Bagel Fat One y Barlow Condensed, de Google Fonts).
+- `marca/logo-original/`: el logotipo original (JPG) y su trazado vectorial.
+- `marca/scripts/`: `trace_logo.py` vectoriza el logotipo original; `make_svgs.py` genera los logotipos en cada tinta, el Solete y los iconos.
 
 Tipografías: Bagel Fat One, Barlow Condensed, Figtree y Caveat Brush (todas gratuitas en Google Fonts).

@@ -3,7 +3,7 @@ El Yopal es un kiosco de barrio con café recién hecho, galletas artesanas, sna
 ## Esencia
 
 - **Qué somos**: tu parada de cada día. Café para llevar, una galleta hecha ese día y lo que te haga falta de camino.
-- **Cómo nos vemos**: el granate del toldo como color principal, el sol del logotipo como acento y el Solete como personaje.
+- **Cómo nos vemos**: el logotipo rotulado a mano, el granate del toldo como color principal, el amarillo sol como acento y el Solete como personaje.
 - **De dónde viene**: el toldo granate con el logotipo y el rótulo URBAN EXPRESS, la madera cálida del mostrador, la pizarra escrita a mano de la puerta y el cartel de combos «2 productos por 3,45 €».
 
 ## Voz y tono
@@ -13,7 +13,7 @@ El Yopal es un kiosco de barrio con café recién hecho, galletas artesanas, sna
 - Titulares de una a cuatro palabras. Los detalles van en el texto del post, no en la imagen.
 - Mayúsculas solo en el estilo `rotulo` (antetítulos, etiquetas y botones). Los titulares van en minúscula con la inicial en mayúscula.
 - Precios en formato español: coma decimal y euro detrás con espacio: `2,80 €`.
-- Emojis en los textos de las publicaciones, uno o dos como mucho y siempre de la misma familia: ☀️ 🍪 ☕. Nunca dentro de los diseños: ahí está el Solete.
+- Emojis en los textos de las publicaciones, uno o dos como mucho y siempre de la misma familia: ☀️ 🍪 ☕. Nunca dentro de los diseños: para eso está el Solete.
 
 ## Color
 
@@ -21,7 +21,7 @@ La regla de reparto en cualquier pieza: más o menos 60 % `granate` o `crema` de
 
 - `granate` es la marca. Fondo de los posts principales, botones y logotipo sobre crema.
 - `crema` es el fondo claro y el color del texto sobre granate. No es blanco: nunca uses `#FFFFFF` de fondo.
-- `sol` es para lo que tiene que saltar a la vista: precios, ofertas, el Solete y los rayos del logo. Sobre `sol` el texto va siempre en `granate` o `granate-hondo`.
+- `sol` es para lo que tiene que saltar a la vista: precios, ofertas y el relleno del Solete. Sobre `sol` el texto va siempre en `granate` o `granate-hondo`.
 - `cielo` refresca: bebidas frías, novedades e historias. Texto encima en `granate` o `granate-hondo`.
 - `galleta` solo para detalles pequeños, nunca para texto.
 - `granate-hondo` es la sombra de las pegatinas y el color de texto sobre colores claros vivos.
@@ -29,7 +29,7 @@ La regla de reparto en cualquier pieza: más o menos 60 % `granate` o `crema` de
 
 ## Tipografía
 
-Las cuatro familias son gratuitas en Google Fonts.
+El logotipo es un rotulado a mano y no se escribe con ninguna fuente. Para todo lo demás, cuatro familias gratuitas de Google Fonts:
 
 - **Bagel Fat One** (`display`): titulares, nombres de producto y precios. Estilos `titular-xl`, `titular-l`, `titular-m` y `precio`. Pocas palabras y muy grandes, nunca en párrafos.
 - **Barlow Condensed** en negrita (`rotulo`): el eco del rótulo URBAN EXPRESS del toldo. Siempre en mayúsculas con espaciado: `rotulo-l` y `rotulo`.
@@ -38,17 +38,18 @@ Las cuatro familias son gratuitas en Google Fonts.
 
 ## Logotipo y mascota
 
-- Usa siempre los archivos del grupo **Logos**. Versión principal: `logotipo-granate.svg` sobre `crema`; sobre `granate`, `logotipo-crema.svg`. Reglas completas en el componente Logotipo.
-- El **Solete** (grupo **Mascota**) es el sol del logotipo hecho pegatina. Tiene tres caras: feliz (por defecto), guiño (ofertas) y sorpresa (novedades). Uno por pieza.
-- Foto de perfil en todas las redes: `avatar-perfil.svg`.
+- El logotipo es el original y **no se cambia**: «El Yopal» rotulado a pincel, inclinado y subrayado, con el sol saliendo sobre la «l». Solo cambia el color, siempre a una tinta. Usa los archivos del grupo **Logos**: `logotipo-granate.svg` sobre `crema` y `logotipo-crema.svg` sobre `granate`. Reglas completas en el componente Logotipo.
+- El **Solete** (grupo **Mascota**) es ese mismo sol, completo y con cara: trazo grueso de puntas redondas, círculo abierto como una pincelada y rayos sueltos. Tiene tres caras (feliz, guiño y sorpresa), una versión para fondo granate, una a una tinta y una asomando por el borde. Uno por pieza.
+- Foto de perfil en todas las redes: `avatar-perfil.svg` (logotipo crema sobre granate).
 
 ## Elementos gráficos
 
-- **Pegatinas**: precios, etiquetas y el Solete se tratan como pegatinas: borde blanco o `granate-hondo`, `sombra-pegatina` (dura, sin difuminar) y un giro de pocos grados.
+- **Pegatinas**: precios, etiquetas y botones se tratan como pegatinas: borde blanco o `granate-hondo`, `sombra-pegatina` (dura, sin difuminar) y un giro de pocos grados. El Solete no: va limpio, sin borde ni sombra, como el logotipo.
+- **Trazo de pincel**: cuando haga falta dibujar algo (un subrayado, una flecha, un rayo), se hace como el logotipo: trazo grueso uniforme con puntas redondas.
 - **Bloques de color** con `radio-l` para separar foto y texto.
 - **Palabra repetida**: una palabra en `titular-xl` repetida en líneas rellenas y en contorno (componente PostTipografico).
 - **Galletas dibujadas**: círculos `galleta` con pepitas `granate-hondo`. Sirven de marcador o de relleno, pero la foto real del producto siempre gana.
-- Formas permitidas: círculos, píldoras y rayos redondeados. Nada de degradados, sombras difuminadas en redes ni texturas.
+- Formas permitidas: círculos, píldoras, arcos abiertos y rayos de puntas redondas. Nada de degradados, sombras difuminadas en redes ni texturas.
 
 ## Iconografía
 
