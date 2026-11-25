@@ -31,7 +31,7 @@ La regla de reparto en cualquier pieza: más o menos 60 % `granate` o `crema` de
 
 El logotipo es un rotulado a mano y no se escribe con ninguna fuente. Para todo lo demás, cuatro familias gratuitas de Google Fonts:
 
-- **Bagel Fat One** (`display`): titulares, nombres de producto y precios. Estilos `titular-xl`, `titular-l`, `titular-m` y `precio`. Pocas palabras y muy grandes, nunca en párrafos.
+- **Fraunces** en Black (900) con las puntas suavizadas (eje `SOFT` a 100) (`display`): titulares, nombres de producto y precios, con aire de cafetería clásica. Estilos `titular-xl`, `titular-l`, `titular-m` y `precio`. Pocas palabras y muy grandes, nunca en párrafos. Su serif suave acompaña al logotipo de pincel sin competir con él.
 - **Barlow Condensed** en negrita (`rotulo`): el eco del rótulo URBAN EXPRESS del toldo. Siempre en mayúsculas con espaciado: `rotulo-l` y `rotulo`.
 - **Figtree** (`texto`): todo lo que se lee de seguido. `texto-l`, `texto` y `texto-s`.
 - **Caveat Brush** (`mano`): las notas como de pizarra («¡recién horneada!»). Como mucho una por pieza y ligeramente girada.
