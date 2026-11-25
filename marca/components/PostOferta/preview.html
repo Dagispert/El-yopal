@@ -1,0 +1,34 @@
+<!-- @dsCard group="Redes" height=600 subtitle="Post 4:5 de promoción (el combo del kiosco)" -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>PostOferta — El Yopal</title>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--superficie); color: var(--tinta); font-family: var(--font-texto); padding: 16px; }
+
+  .row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+  .yp-lienzo-marco { box-shadow: 0 0 0 1px var(--linea); }
+
+</style>
+</head>
+<body>
+<div class="row"><div class="yp-lienzo-marco" style="width:420px" data-theme="claro"><div class="yp-lienzo yp-lienzo--post" style="background:var(--sol)">
+<p class="yp-rotulo" style="position:absolute;left:96px;top:96px;margin:0;font-size:38px;color:var(--granate-hondo)">Combínalos como quieras</p>
+<h2 class="yp-display" style="position:absolute;left:96px;top:160px;margin:0;font-size:230px;line-height:.86;color:var(--granate)">2 por<br>3,45 €</h2>
+<img src="/_blob/e9e1d47197e6c4648287df11caba0d31" alt="" style="position:absolute;right:60px;top:120px;width:300px;transform:rotate(12deg)">
+<div style="position:absolute;left:96px;right:96px;top:720px;display:flex;justify-content:space-between"><div style="display:grid;justify-items:center;gap:18px"><span style="width:230px;height:230px;border-radius:50%;background:var(--crema);border:6px solid var(--granate-hondo);display:grid;place-items:center"><img src="/_blob/0078b103f58371008256e74c2b8a5e67" alt="" style="width:110px"></span><span class="yp-rotulo" style="font-size:44px;color:var(--granate-hondo)">Bebida</span></div><span class="yp-display" style="font-size:110px;color:var(--granate);align-self:start;margin-top:30px">+</span><div style="display:grid;justify-items:center;gap:18px"><span style="width:230px;height:230px;border-radius:50%;background:var(--crema);border:6px solid var(--granate-hondo);display:grid;place-items:center"><img src="/_blob/18d2f75d08e105f8c102f5f7f90063e0" alt="" style="width:110px"></span><span class="yp-rotulo" style="font-size:44px;color:var(--granate-hondo)">Snack</span></div><span class="yp-display" style="font-size:110px;color:var(--granate);align-self:start;margin-top:30px">+</span><div style="display:grid;justify-items:center;gap:18px"><span style="width:230px;height:230px;border-radius:50%;background:var(--crema);border:6px solid var(--granate-hondo);display:grid;place-items:center"><img src="/_blob/73b2a50af1261ef026472e11600e35e2" alt="" style="width:110px"></span><span class="yp-rotulo" style="font-size:44px;color:var(--granate-hondo)">Dulce</span></div></div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:190px;background:var(--granate);display:flex;align-items:center;justify-content:space-between;padding:0 96px">
+  <img src="/_blob/b0760751f6ed0575140b9b259a5d713a" alt="" style="height:70px"><span class="yp-mano" style="font-size:54px;color:var(--sol)">elige 2 y listo</span>
+</div>
+</div></div></div>
+<script>
+  /* Reduce cada lienzo de 1080 px al ancho de su marco */
+  document.querySelectorAll('.yp-lienzo-marco').forEach(function (m) {
+    var l = m.querySelector('.yp-lienzo'); var s = m.clientWidth / 1080;
+    l.style.transform = 'scale(' + s + ')'; m.style.height = (l.offsetHeight * s) + 'px';
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!-- @dsCard group="Web" height=90 subtitle="Pegatinas alargadas para destacar" -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Etiqueta — El Yopal</title>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--superficie); color: var(--tinta); font-family: var(--font-texto); padding: 16px; }
+
+</style>
+</head>
+<body>
+<div class="yp-row" style="padding:8px 0">
+  <span class="yp-tag yp-tag--sol">Recién horneadas</span>
+  <span class="yp-tag">Para llevar</span>
+  <span class="yp-tag yp-tag--cielo">Bien fría</span>
+  <span class="yp-tag yp-tag--granate">Nuevo</span>
+</div>
+<script>
+  /* Reduce cada lienzo de 1080 px al ancho de su marco */
+  document.querySelectorAll('.yp-lienzo-marco').forEach(function (m) {
+    var l = m.querySelector('.yp-lienzo'); var s = m.clientWidth / 1080;
+    l.style.transform = 'scale(' + s + ')'; m.style.height = (l.offsetHeight * s) + 'px';
+  });
+</script>
+</body>
+</html>

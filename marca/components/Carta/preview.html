@@ -1,0 +1,41 @@
+<!-- @dsCard group="Redes" height=470 subtitle="Carta de café y galletas (precios de café de ejemplo)" -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Carta — El Yopal</title>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--superficie); color: var(--tinta); font-family: var(--font-texto); padding: 16px; }
+
+  .carta { max-width: 560px; background: var(--granate); color: var(--crema); border-radius: var(--radio-l); padding: 32px; position: relative; overflow: hidden; }
+  .carta h2 { margin: 0 0 4px; font: 400 52px/1 var(--font-display); color: var(--crema); }
+  .carta .sub { margin: 0 0 24px; font: 700 15px/1 var(--font-rotulo); letter-spacing: .08em; text-transform: uppercase; color: var(--sol); }
+  .carta ul { list-style: none; margin: 0 0 20px; padding: 0; display: grid; gap: 12px; }
+  .carta li { display: flex; align-items: baseline; gap: 8px; font: 500 19px/1.2 var(--font-texto); }
+  .carta li i { flex: 1; border-bottom: 2px dotted rgba(255, 244, 226, .45); transform: translateY(-4px); }
+  .carta li b { font: 400 22px/1 var(--font-display); font-variant-numeric: tabular-nums; color: var(--sol); }
+  .carta h3 { margin: 0 0 12px; font: 700 15px/1 var(--font-rotulo); letter-spacing: .08em; text-transform: uppercase; color: var(--sol); }
+  .carta .sol { position: absolute; right: -22px; top: -22px; width: 140px; transform: rotate(12deg); }
+  .carta .nota { font: 400 26px/1.1 var(--font-mano); color: var(--sol); margin: 8px 0 0; }
+
+</style>
+</head>
+<body>
+<div class="carta" data-theme="claro">
+  <img class="sol" src="/_blob/2d063f516c92a47327f68196317c1489" alt="">
+  <h2>Carta café</h2><p class="sub">Urban Express · El Yopal</p>
+  <ul><li><span>Café solo</span><i></i><b>1,30 €</b></li><li><span>Cortado</span><i></i><b>1,40 €</b></li><li><span>Café con leche</span><i></i><b>1,60 €</b></li><li><span>Capuchino</span><i></i><b>2,00 €</b></li><li><span>Chocolate</span><i></i><b>2,20 €</b></li></ul>
+  <h3>Galletas artesanas</h3>
+  <ul><li><span>Choco chips · Oreo · Lotus</span><i></i><b>2,80 €</b></li></ul>
+  <p class="nota">¿café + galleta? pregúntanos por el combo</p>
+</div>
+<script>
+  /* Reduce cada lienzo de 1080 px al ancho de su marco */
+  document.querySelectorAll('.yp-lienzo-marco').forEach(function (m) {
+    var l = m.querySelector('.yp-lienzo'); var s = m.clientWidth / 1080;
+    l.style.transform = 'scale(' + s + ')'; m.style.height = (l.offsetHeight * s) + 'px';
+  });
+</script>
+</body>
+</html>

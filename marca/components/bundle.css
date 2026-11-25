@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Barlow+Condensed:wght@600;700&family=Caveat+Brush&family=Figtree:wght@400;500;700;800&display=swap");
+
+/* El Yopal — piezas compartidas. Todo color sale de los tokens. */
+.yp { font-family: var(--font-texto); color: var(--tinta); }
+.yp-row { display: flex; flex-wrap: wrap; gap: var(--esp-4); align-items: center; }
+
+/* Botón: píldora con sombra de pegatina */
+.yp-btn {
+  font-family: var(--font-rotulo); font-weight: 700; font-size: 17px; letter-spacing: .08em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: var(--esp-2);
+  padding: var(--esp-3) var(--esp-6); border-radius: var(--radio-pill); border: 2px solid var(--granate-hondo);
+  background: var(--granate); color: var(--sobre-granate); box-shadow: var(--sombra-pegatina);
+  cursor: pointer; transition: transform .12s ease, box-shadow .12s ease;
+}
+.yp-btn:hover { transform: translate(-1px, -1px); }
+.yp-btn:active { transform: translate(3px, 4px); box-shadow: 0 0 0 transparent; }
+.yp-btn:focus-visible { outline: 3px solid var(--foco); outline-offset: 2px; }
+.yp-btn--sol { background: var(--sol); color: var(--sobre-sol); }
+.yp-btn--contorno { background: transparent; color: var(--tinta); border-color: var(--tinta); box-shadow: none; }
+
+/* Pegatina de precio */
+.yp-precio {
+  display: inline-grid; place-items: center; text-align: center;
+  background: var(--sol); color: var(--sobre-sol); border: 4px solid #FFFFFF;
+  border-radius: 50%; width: 150px; height: 150px; box-shadow: var(--sombra-pegatina); transform: rotate(-8deg);
+}
+.yp-precio b { font-family: var(--font-display); font-weight: 400; font-size: 44px; line-height: 1; }
+.yp-precio small { display: block; font-family: var(--font-rotulo); font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+
+/* Etiqueta / pegatina alargada */
+.yp-tag {
+  display: inline-flex; align-items: center; gap: var(--esp-1);
+  font-family: var(--font-rotulo); font-weight: 700; font-size: 15px; letter-spacing: .08em; text-transform: uppercase;
+  padding: 6px 14px; border-radius: var(--radio-pill); border: 2px solid var(--granate-hondo);
+  background: var(--crema); color: var(--granate-hondo);
+}
+.yp-tag--sol { background: var(--sol); }
+.yp-tag--cielo { background: var(--cielo); }
+.yp-tag--granate { background: var(--granate); color: var(--sobre-granate); }
+
+/* Lienzo de redes: se diseña a 1080 px y se reduce para la vista previa */
+.yp-lienzo-marco { position: relative; overflow: hidden; border-radius: var(--radio-s); flex: none; }
+.yp-lienzo { position: absolute; top: 0; left: 0; width: 1080px; transform-origin: top left; overflow: hidden; font-family: var(--font-texto); }
+.yp-lienzo--post { height: 1350px; }
+.yp-lienzo--historia { height: 1920px; }
+.yp-display { font-family: var(--font-display); font-weight: 400; }
+.yp-rotulo { font-family: var(--font-rotulo); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.yp-mano { font-family: var(--font-mano); }

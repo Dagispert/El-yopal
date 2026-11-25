@@ -1,0 +1,28 @@
+<!-- @dsCard group="Web" height=200 subtitle="Pegatina de precio" -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Precio — El Yopal</title>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--superficie); color: var(--tinta); font-family: var(--font-texto); padding: 16px; }
+
+  .row { display: flex; gap: 32px; align-items: center; padding: 16px 8px; flex-wrap: wrap; }
+
+</style>
+</head>
+<body>
+<div class="row">
+  <span class="yp-precio"><span><b>2,80 €</b><small>la galleta</small></span></span>
+  <span class="yp-precio" style="transform:rotate(6deg)"><span><small>2 productos</small><b>3,45 €</b></span></span>
+</div>
+<script>
+  /* Reduce cada lienzo de 1080 px al ancho de su marco */
+  document.querySelectorAll('.yp-lienzo-marco').forEach(function (m) {
+    var l = m.querySelector('.yp-lienzo'); var s = m.clientWidth / 1080;
+    l.style.transform = 'scale(' + s + ')'; m.style.height = (l.offsetHeight * s) + 'px';
+  });
+</script>
+</body>
+</html>

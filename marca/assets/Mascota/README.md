@@ -1,0 +1,1 @@
+El Solete, la mascota: cuerpo `sol`, cara `granate-hondo`, coloretes `mejilla`, borde blanco de pegatina y sombra `granate-hondo`. Tres caras: `solete-feliz.svg` (por defecto), `solete-guino.svg` (ofertas) y `solete-sorpresa.svg` (novedades). Uno por pieza, girado entre -12° y 12°, con 48 px de tamaño mínimo.

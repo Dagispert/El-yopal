@@ -1,0 +1,27 @@
+<!-- @dsCard group="Web" height=96 subtitle="Principal, sol y contorno" -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Boton — El Yopal</title>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--superficie); color: var(--tinta); font-family: var(--font-texto); padding: 16px; }
+
+</style>
+</head>
+<body>
+<div class="yp-row" style="padding:8px 0">
+  <button class="yp-btn" type="button">Ver la carta</button>
+  <button class="yp-btn yp-btn--sol" type="button">Cómo llegar</button>
+  <button class="yp-btn yp-btn--contorno" type="button">Síguenos</button>
+</div>
+<script>
+  /* Reduce cada lienzo de 1080 px al ancho de su marco */
+  document.querySelectorAll('.yp-lienzo-marco').forEach(function (m) {
+    var l = m.querySelector('.yp-lienzo'); var s = m.clientWidth / 1080;
+    l.style.transform = 'scale(' + s + ')'; m.style.height = (l.offsetHeight * s) + 'px';
+  });
+</script>
+</body>
+</html>

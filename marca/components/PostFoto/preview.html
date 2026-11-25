@@ -1,0 +1,38 @@
+<!-- @dsCard group="Redes" height=600 subtitle="Post 4:5 con foto real del kiosco" -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>PostFoto — El Yopal</title>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--superficie); color: var(--tinta); font-family: var(--font-texto); padding: 16px; }
+
+  .row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+  .yp-lienzo-marco { box-shadow: 0 0 0 1px var(--linea); }
+
+</style>
+</head>
+<body>
+<div class="row"><div class="yp-lienzo-marco" style="width:420px" data-theme="claro"><div class="yp-lienzo yp-lienzo--post" style="background:var(--granate)">
+<img src="/_blob/ae22d6c2f49cda4472a73a1336a876ab" alt="" style="position:absolute;left:48px;top:48px;width:984px;height:980px;object-fit:cover;object-position:50% 45%;border-radius:var(--radio-l)">
+<img src="/_blob/2d063f516c92a47327f68196317c1489" alt="" style="position:absolute;right:20px;top:860px;width:240px;transform:rotate(-8deg)">
+<h2 class="yp-display" style="position:absolute;left:96px;top:1060px;margin:0;font-size:96px;line-height:.95;color:var(--crema)">Tu parada<br>de cada día</h2>
+<span class="yp-tag yp-tag--sol" style="position:absolute;left:96px;top:930px;font-size:28px;padding:10px 24px;transform:rotate(-3deg)">Ya estamos abiertos</span>
+</div></div><div class="yp-lienzo-marco" style="width:420px" data-theme="claro"><div class="yp-lienzo yp-lienzo--post" style="background:var(--crema)">
+<img src="/_blob/59e3ba07b8e7fe687162cbaa84f282fb" alt="" style="position:absolute;right:48px;top:48px;width:470px;height:1254px;object-fit:cover;border-radius:var(--radio-l)">
+<p class="yp-rotulo" style="position:absolute;left:96px;top:110px;margin:0;font-size:34px;color:var(--granate)">Y además</p>
+<h2 class="yp-display" style="position:absolute;left:96px;top:170px;margin:0;font-size:92px;line-height:.95;color:var(--granate)">Tus<br>revistas</h2>
+<p style="position:absolute;left:96px;top:390px;width:400px;margin:0;font:500 34px/1.4 var(--font-texto);color:var(--tinta)">Las de siempre, cada semana, junto al café.</p>
+<img src="/_blob/7e5e442eb1c383ff4fb30de2de18cb77" alt="" style="position:absolute;left:96px;top:620px;width:120px">
+<img src="/_blob/ce7ec06bb9f9e16d802b7507fcfb6d3c" alt="" style="position:absolute;left:96px;bottom:90px;width:360px">
+</div></div></div>
+<script>
+  /* Reduce cada lienzo de 1080 px al ancho de su marco */
+  document.querySelectorAll('.yp-lienzo-marco').forEach(function (m) {
+    var l = m.querySelector('.yp-lienzo'); var s = m.clientWidth / 1080;
+    l.style.transform = 'scale(' + s + ')'; m.style.height = (l.offsetHeight * s) + 'px';
+  });
+</script>
+</body>
+</html>

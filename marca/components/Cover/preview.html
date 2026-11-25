@@ -1,0 +1,58 @@
+<!-- @dsCard height=300 -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>El Yopal</title>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--superficie); color: var(--tinta); font-family: var(--font-texto); overflow: hidden; }
+  .cover { position: relative; width: 960px; height: 300px; overflow: hidden; }
+  .art { position: absolute; top: 0; left: 480px; width: 480px; height: 300px; overflow: hidden; }
+  .art svg { display: block; }
+  .granate { fill: var(--granate); }
+  .hondo { fill: var(--granate-hondo); }
+  .sol { fill: var(--sol); }
+  .cielo { fill: var(--cielo); }
+  .galleta { fill: var(--galleta); }
+  .m { rx: var(--radio-m); }
+  .l { rx: var(--radio-l); }
+  .words { position: absolute; left: var(--esp-8); bottom: var(--esp-8); max-width: 440px; }
+  .name { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 84px; line-height: .92; color: var(--tinta); white-space: nowrap; }
+  .tag { margin: var(--esp-6) 0 0 4px; font-size: 14px; line-height: 20px; color: var(--tinta-suave); }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="art" aria-hidden="true">
+    <svg viewBox="0 0 480 300" width="480" height="300">
+      <!--
+        blocks      granate 200×284 sangrando por arriba (el toldo, el bloque mayor) · cielo 136×208 radio-l · granate-hondo 144×156 sangrando por la derecha · galleta disco r=24 · sol medio disco r=64 + rayos (≈ 40 % de 960×300)
+        arrangement una losa alta granate con satélites; bases alineadas a esp-6 del borde inferior, calles de esp-4
+        pattern     fila «motivo literal: sol»: el sol del logotipo saliendo por la base de la losa, siete rayos en píldora (rx = mitad del ancho) en abanico de 200° a 340°
+        scales      lados en múltiplos de esp-2; calles esp-4; esquinas radio-m y radio-l; rayos de 16 de ancho con rx 8
+      -->
+      <rect class="granate m" x="0" y="-16" width="200" height="292" rx="16"/>
+      <circle class="sol" cx="100" cy="276" r="64"/>
+      <g class="sol">
+        <rect x="-8" y="-128" width="16" height="44" rx="8" transform="translate(100 276) rotate(-72)"/>
+        <rect x="-8" y="-128" width="16" height="44" rx="8" transform="translate(100 276) rotate(-48)"/>
+        <rect x="-8" y="-128" width="16" height="44" rx="8" transform="translate(100 276) rotate(-24)"/>
+        <rect x="-8" y="-128" width="16" height="44" rx="8" transform="translate(100 276) rotate(0)"/>
+        <rect x="-8" y="-128" width="16" height="44" rx="8" transform="translate(100 276) rotate(24)"/>
+        <rect x="-8" y="-128" width="16" height="44" rx="8" transform="translate(100 276) rotate(48)"/>
+        <rect x="-8" y="-128" width="16" height="44" rx="8" transform="translate(100 276) rotate(72)"/>
+      </g>
+      <rect class="cielo l" x="216" y="68" width="136" height="208" rx="32"/>
+      <circle class="galleta" cx="284" cy="32" r="24"/>
+      <rect class="hondo m" x="368" y="120" width="144" height="156" rx="16"/>
+      <rect class="sol" x="384" y="88" width="64" height="16" rx="8"/>
+    </svg>
+  </div>
+  <div class="words">
+    <p class="name">El Yopal</p>
+    <p class="tag">Café, galletas artesanas y tu kiosco de siempre.</p>
+  </div>
+</div>
+</body>
+</html>

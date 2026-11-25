@@ -1,0 +1,1 @@
+Iconos de trazo propios: 24 × 24, trazo de 2 px con puntas redondas, tinta fija `granate` (`#8C1D2F`). En redes van dentro de un círculo `crema` o `sol` con borde `granate-hondo`. Para otra tinta, edita el atributo `stroke` del SVG.

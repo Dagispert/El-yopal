@@ -1,0 +1,34 @@
+<!-- @dsCard group="Redes" height=600 subtitle="Post 4:5 de palabra repetida" -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>PostTipografico — El Yopal</title>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--superficie); color: var(--tinta); font-family: var(--font-texto); padding: 16px; }
+
+  .row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+  .yp-lienzo-marco { box-shadow: 0 0 0 1px var(--linea); }
+
+</style>
+</head>
+<body>
+<div class="row"><div class="yp-lienzo-marco" style="width:420px" data-theme="claro"><div class="yp-lienzo yp-lienzo--post" style="background:var(--granate)">
+<div style="position:absolute;left:-30px;top:90px"><div class="yp-display" style="font-size:236px;line-height:.86;white-space:nowrap;color:var(--crema)">GALLETAS</div><div class="yp-display" style="font-size:236px;line-height:.86;white-space:nowrap;color:transparent;-webkit-text-stroke:4px var(--sol)">GALLETAS</div><div class="yp-display" style="font-size:236px;line-height:.86;white-space:nowrap;color:var(--crema)">GALLETAS</div><div class="yp-display" style="font-size:236px;line-height:.86;white-space:nowrap;color:transparent;-webkit-text-stroke:4px var(--sol)">GALLETAS</div><div class="yp-display" style="font-size:236px;line-height:.86;white-space:nowrap;color:var(--crema)">GALLETAS</div></div>
+<div style="position:absolute;left:300px;top:390px;transform:rotate(-10deg)"><svg viewBox="0 0 200 200" width="480" height="480" aria-hidden="true" ><circle cx="100" cy="100" r="90" style="fill:var(--galleta);stroke:var(--granate-hondo);stroke-width:6"/><path d="M40 70 q10 -30 40 -38" style="fill:none;stroke:#F2C08A;stroke-width:8;stroke-linecap:round"/><rect x="49" y="57" width="26" height="22" rx="6" transform="rotate(14 62 70)" style="fill:var(--granate-hondo)"/><rect x="101" y="41" width="22" height="19" rx="5" transform="rotate(4 112 52)" style="fill:var(--granate-hondo)"/><rect x="126" y="78" width="28" height="24" rx="6" transform="rotate(0 140 92)" style="fill:var(--granate-hondo)"/><rect x="84" y="92" width="24" height="20" rx="5" transform="rotate(12 96 104)" style="fill:var(--granate-hondo)"/><rect x="47" y="117" width="22" height="19" rx="5" transform="rotate(-14 58 128)" style="fill:var(--granate-hondo)"/><rect x="105" y="127" width="26" height="22" rx="6" transform="rotate(6 118 140)" style="fill:var(--granate-hondo)"/><rect x="143" y="125" width="18" height="15" rx="4" transform="rotate(4 152 134)" style="fill:var(--granate-hondo)"/><rect x="76" y="144" width="16" height="14" rx="4" transform="rotate(8 84 152)" style="fill:var(--granate-hondo)"/><rect x="66" y="90" width="12" height="10" rx="3" transform="rotate(4 72 96)" style="fill:var(--granate-hondo)"/><rect x="122" y="112" width="12" height="10" rx="3" transform="rotate(-4 128 118)" style="fill:var(--granate-hondo)"/></svg></div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:200px;background:var(--granate-hondo);display:flex;align-items:center;justify-content:space-between;padding:0 96px"><span class="yp-rotulo" style="font-size:34px;color:var(--crema)">Artesanas · todos los días</span><img src="/_blob/b0760751f6ed0575140b9b259a5d713a" alt="" style="height:60px"></div>
+</div></div><div class="yp-lienzo-marco" style="width:420px" data-theme="claro"><div class="yp-lienzo yp-lienzo--post" style="background:var(--cielo)">
+<div style="position:absolute;left:-20px;top:90px"><div class="yp-display" style="font-size:236px;line-height:.86;white-space:nowrap;color:var(--granate)">CAFÉ CAFÉ</div><div class="yp-display" style="font-size:236px;line-height:.86;white-space:nowrap;color:transparent;-webkit-text-stroke:4px var(--granate)">CAFÉ CAFÉ</div><div class="yp-display" style="font-size:236px;line-height:.86;white-space:nowrap;color:var(--granate)">CAFÉ CAFÉ</div><div class="yp-display" style="font-size:236px;line-height:.86;white-space:nowrap;color:transparent;-webkit-text-stroke:4px var(--granate)">CAFÉ CAFÉ</div><div class="yp-display" style="font-size:236px;line-height:.86;white-space:nowrap;color:var(--granate)">CAFÉ CAFÉ</div></div>
+<span style="position:absolute;left:330px;top:420px;width:420px;height:420px;border-radius:50%;background:var(--sol);border:8px solid var(--granate-hondo);display:grid;place-items:center;transform:rotate(-6deg)"><img src="/_blob/138dad471ca184bbde802fb4220c3867" alt="" style="width:230px"></span>
+<div style="position:absolute;left:0;right:0;bottom:0;height:200px;background:var(--crema);display:flex;align-items:center;justify-content:space-between;padding:0 96px"><span class="yp-mano" style="font-size:62px;color:var(--granate)">para llevar, claro</span><img src="/_blob/12adccad4733dfcf943eba0ad4a4b5a1" alt="" style="height:60px"></div>
+</div></div></div>
+<script>
+  /* Reduce cada lienzo de 1080 px al ancho de su marco */
+  document.querySelectorAll('.yp-lienzo-marco').forEach(function (m) {
+    var l = m.querySelector('.yp-lienzo'); var s = m.clientWidth / 1080;
+    l.style.transform = 'scale(' + s + ')'; m.style.height = (l.offsetHeight * s) + 'px';
+  });
+</script>
+</body>
+</html>

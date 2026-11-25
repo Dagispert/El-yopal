@@ -1,0 +1,1 @@
+Fotos reales del kiosco, reducidas a 1600 px: la fachada con el toldo granate, el mostrador de madera con la cafetera y las galletas, y el rincón de revistas. Úsalas en PostFoto, en la web y en las historias de «ya estamos abiertos». Nunca pongas texto encima.
