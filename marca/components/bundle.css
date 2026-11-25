@@ -35,7 +35,7 @@
   background: var(--crema); color: var(--granate-hondo);
 }
 .yp-tag--sol { background: var(--sol); }
-.yp-tag--cielo { background: var(--cielo); }
+.yp-tag--azul { background: var(--azul); }
 .yp-tag--granate { background: var(--granate); color: var(--sobre-granate); }
 
 /* Lienzo de redes: se diseña a 1080 px y se reduce para la vista previa */

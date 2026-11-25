@@ -17,12 +17,12 @@ El Yopal es un kiosco de barrio con café recién hecho, galletas artesanas, sna
 
 ## Color
 
-La regla de reparto en cualquier pieza: más o menos 60 % `granate` o `crema` de fondo, 25 % el otro de los dos, 10 % `sol` y 5 % `cielo` o `galleta`.
+La regla de reparto en cualquier pieza: más o menos 60 % `granate` o `crema` de fondo, 25 % el otro de los dos, 10 % `sol` y 5 % `azul` o `galleta`.
 
 - `granate` es la marca. Fondo de los posts principales, botones y logotipo sobre crema.
 - `crema` es el fondo claro y el color del texto sobre granate. No es blanco: nunca uses `#FFFFFF` de fondo.
 - `sol` es para lo que tiene que saltar a la vista: precios, ofertas y el Solete. Sobre `sol` el texto va siempre en `granate` o `granate-hondo`.
-- `cielo` refresca: bebidas frías, novedades e historias. Texto encima en `granate` o `granate-hondo`.
+- `azul` es un denim medio, el contrapunto frío del granate: bloques de foto de producto, bebidas frías, novedades e historias. Texto encima en `granate-hondo`; el `granate` solo en titulares grandes y en el logotipo.
 - `galleta` solo para detalles pequeños, nunca para texto.
 - `granate-hondo` es la sombra de las pegatinas y el color de texto sobre colores claros vivos.
 - En la web, usa los tokens de superficie (`superficie`, `superficie-alt`, `tinta`, `tinta-suave`, `linea`), que cambian con el tema oscuro. Los posts e imágenes de redes van siempre en tema `claro`.
@@ -39,7 +39,7 @@ El logotipo es un rotulado a mano y no se escribe con ninguna fuente. Para todo 
 ## Logotipo y mascota
 
 - El logotipo es el original y **no se cambia**: «El Yopal» rotulado a pincel, inclinado y subrayado, con el sol saliendo sobre la «l». Solo cambia el color, siempre a una tinta. Usa los archivos del grupo **Logos**: `logotipo-granate.svg` sobre `crema` y `logotipo-crema.svg` sobre `granate`. Reglas completas en el componente Logotipo.
-- El **Solete** (grupo **Mascota**) es un sol plano y luminoso: círculo amarillo macizo sin contorno, doce rayos de puntas redondas que alternan largo y corto, y cara de trazo en `granate-hondo`. Tiene tres caras (feliz, guiño y sorpresa), una versión a una tinta para fondos `sol` e impresión, y una asomando por el borde. Uno por pieza; se lee mejor sobre `granate`, `cielo` o fotos que sobre `crema`.
+- El **Solete** (grupo **Mascota**) es un sol plano y luminoso: círculo amarillo macizo sin contorno, doce rayos de puntas redondas que alternan largo y corto, y cara de trazo en `granate-hondo`. Tiene tres caras (feliz, guiño y sorpresa), una versión a una tinta para fondos `sol` e impresión, y una asomando por el borde. Uno por pieza; se lee mejor sobre `granate`, `azul` o fotos que sobre `crema`.
 - Foto de perfil en todas las redes: `avatar-perfil.svg` (logotipo crema sobre granate).
 
 ## Elementos gráficos
@@ -58,7 +58,7 @@ Iconos propios de trazo (grupo **Iconos**): 24 × 24, trazo de 2 px con puntas r
 ## Fotografía
 
 - Luz cálida: por la mañana o con el kiosco encendido. Nada de filtros fríos o desaturados.
-- Producto: una mano sosteniendo la galleta o el vaso, sobre fondo liso `cielo`, `sol`, `granate` o la pared crema. Producto recortado sin fondo para posts de producto.
+- Producto: una mano sosteniendo la galleta o el vaso, sobre fondo liso `azul`, `sol`, `granate` o la pared crema. Producto recortado sin fondo para posts de producto.
 - El kiosco: fachada con el toldo, el mostrador de madera iluminado y el rincón de revistas (grupo **Fotos**).
 - El texto nunca va encima de la foto: va en un bloque de color al lado o debajo.
 
@@ -66,7 +66,7 @@ Iconos propios de trazo (grupo **Iconos**): 24 × 24, trazo de 2 px con puntas r
 
 - Formatos: post 1080 × 1350 px (4:5), historia 1080 × 1920 px (9:16) y avatar 1080 × 1080 px.
 - Márgenes de seguridad: 96 px en posts y 250 px arriba y abajo en historias.
-- Rejilla del feed: alterna fondo `granate`, fondo claro (`crema`, `sol` o `cielo`) y foto real, para que ningún color se repita dos veces seguidas en la misma fila.
+- Rejilla del feed: alterna fondo `granate`, fondo claro (`crema`, `sol` o `azul`) y foto real, para que ningún color se repita dos veces seguidas en la misma fila.
 - Plantillas: PostProducto, PostOferta, PostTipografico, PostFoto, Historia, Carta y Pizarra.
 - Logotipo siempre en una esquina o en la banda inferior, pequeño. El protagonista es el producto.
 

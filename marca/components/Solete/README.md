@@ -10,7 +10,7 @@ El Solete es la mascota de El Yopal: un sol plano y luminoso, macizo y sin conto
 - **Asomando** (`solete-asomando.svg`): medio sol saliendo, para pegar en el borde inferior de un post o una historia.
 
 ## Dónde se lee bien
-- Muy bien sobre `granate`, `cielo`, `granate-hondo` y fotos.
+- Muy bien sobre `granate`, `azul`, `granate-hondo` y fotos.
 - Sobre `crema` o `superficie` el amarillo tiene poco contraste: ponlo dentro de un bloque de color o usa `solete-tinta`.
 - Sobre `sol`, siempre `solete-tinta`.
 

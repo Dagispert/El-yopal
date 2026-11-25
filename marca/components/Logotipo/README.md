@@ -5,7 +5,7 @@ El logotipo de El Yopal es el rotulado a mano original: «El Yopal» en letra de
 ## Qué archivo usar
 - `logotipo-granate.svg` sobre `crema` o `superficie`: la versión principal.
 - `logotipo-crema.svg` sobre `granate` o fotos oscuras.
-- `logotipo-tinta.svg` (`granate-hondo`) sobre `sol` o `cielo`, y para impresión a una tinta.
+- `logotipo-tinta.svg` (`granate-hondo`) sobre `sol` o `azul`, y para impresión a una tinta.
 - `bloque-*.svg`: el logotipo con el rótulo URBAN EXPRESS · CAFÉ & GALLETAS debajo, para cabeceras, la carta y pies de post.
 - `avatar-perfil.svg`: logotipo `crema` sobre `granate`, para la foto de perfil.
 
